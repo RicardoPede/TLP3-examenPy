@@ -24,41 +24,41 @@ productos = [
 ]
 
 # Punto 1
-def calcular_valor_inventario(productos):
-    for producto in productos:
-        producto['valor_inventario'] = producto['precio'] * producto['cantidad_disponible']
+def calcular_valor_inventario(productos): # calcula el valor del inventario de cada producto
+    for producto in productos: # recorre la lista de productos
+        producto['valor_inventario'] = producto['precio'] * producto['cantidad_disponible'] # calcula el valor del inventario
     return productos
 
 print("con valor inventario: ", calcular_valor_inventario(productos))
 
 # Punto 2
-def calcular_valor_total_inventario(productos):
-    return sum(producto['valor_inventario'] for producto in productos)
+def calcular_valor_total_inventario(productos): # calcula el valor total del inventario
+    return sum(producto['valor_inventario'] for producto in productos) # suma el valor del inventario de cada producto
 
-valor_inventario = calcular_valor_inventario(productos)
-print("Valor total del inventario: ", calcular_valor_total_inventario(valor_inventario))
+valor_inventario = calcular_valor_inventario(productos) # calcula el valor del inventario de cada producto
+print("Valor total del inventario: ", calcular_valor_total_inventario(valor_inventario)) # calcula el valor total del inventario
 
 # Punto 3
 ventas = [
     {'nombre': 'Camiseta', 'cantidad_vendida': 5},
 ]
 
-def simular_ventas(productos, ventas):
-    for venta in ventas:
-        for producto in productos:
-            if producto['nombre'] == venta['nombre']:
-                producto['cantidad_disponible'] -= venta['cantidad_vendida']
+def simular_ventas(productos, ventas): # simula las ventas de los productos
+    for venta in ventas: # recorre la lista de ventas
+        for producto in productos: # recorre la lista de productos
+            if producto['nombre'] == venta['nombre']: # si el nombre del producto es igual al nombre de la venta
+                producto['cantidad_disponible'] -= venta['cantidad_vendida'] # resta la cantidad vendida a la cantidad disponible
     return productos
     
-simulacro_venta = simular_ventas(productos, ventas)
+simulacro_venta = simular_ventas(productos, ventas) # simula las ventas de los productos
 
 # Punto 4
 print(simulacro_venta)
 
 
 # Punto 5
-def crear_dataframe(productos):
-    df = pd.DataFrame(productos)
-    return df[['nombre', 'cantidad_disponible']]
+def crear_dataframe(productos): # crea un dataframe con los productos y la cantidad disponible
+    df = pd.DataFrame(productos) # crea un dataframe con los productos
+    return df[['nombre', 'cantidad_disponible']] # retorna el dataframe con el nombre y la cantidad disponible
 
 df = crear_dataframe(productos)
